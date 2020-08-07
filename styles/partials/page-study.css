@@ -149,7 +149,7 @@
     margin-top: .4rem;
 }
 
-.teacher-item p {
+.teacher-item > p {
     padding: 0 2rem;
     font-size: 1.6rem;
     line-height: 2.8rem;
@@ -165,7 +165,7 @@
     justify-content: space-between;
 }
 
-.teacher-item footer {
+.teacher-item footer p {
     font-size: 1.4rem;
     line-height: 2.4rem;
     color: var(--color-text-complete);
@@ -189,7 +189,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    text-emphasis: none;
+    text-decoration: none;
     transition: background 0.2s;
     margin-left: 1.6rem;
 }
@@ -220,6 +220,7 @@
         max-width: 740px;
         margin: 0 auto;
         flex: 1 1;
+        padding-bottom: 48px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -264,7 +265,6 @@
         width: 245px;
         font-size: 16px;
         justify-content: center;
-        font-weight: 600;
     }
 
     .teacher-item footer button img {
