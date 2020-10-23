@@ -110,6 +110,7 @@ class FamilyTree extends React.Component {
 
   render() {
     return (
+      
       <Tree
         className="draggable-tree"
         defaultExpandedKeys={this.state.expandedKeys}
@@ -119,6 +120,8 @@ class FamilyTree extends React.Component {
         onDrop={this.onDrop}
         treeData={this.state.gData}
       />
+
+
     );
   }
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import FamilyTree from './components/FamilyTree'
+import Landing from './views/Landing/Landing';
 
 import './App.css';
 
 function App() {
   return (
     <div className="container">
-      <FamilyTree />
+      <Landing />
     </div>
   );
 }
