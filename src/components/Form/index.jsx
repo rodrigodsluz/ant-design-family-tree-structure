@@ -3,14 +3,56 @@ import { Form, Input, Button } from 'antd';
 import 'antd/dist/antd.css';
 
 
-class Demo extends React.Component {
+export default class Demo extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isEditing: false,
+      disabled: true,
+    };
+  }
+
   formRef = React.createRef();
   onFinish = (values) => {
-    console.log(values);
+    // // console.log(values);
+    
+        this.updateRegion(values);
+      
   };
-  onReset = () => {
+ 
+
+  handleCancel = (e) => {
+    this.setState({
+      isEditing: false,
+      disabled: true,
+    });
     this.formRef.current.resetFields();
   };
+
+  updateRegion = values => {
+    console.log(values);
+  }
+
+  handleSubmitRegion = (e) => {
+    e.preventDefault();
+    this.formRef.current.scrollToField((err, values) => {
+      if (!err) {
+        this.updateRegion(values);
+      }
+    });
+  };
+
+  handleEdit = () => {
+    this.setState({
+      isEditing: true,
+      disabled: false,
+    });
+  };
+
+
+
 
   render() {
     return (
@@ -31,14 +73,33 @@ class Demo extends React.Component {
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-          <Button htmlType="button" onClick={this.onReset}>
+          <Button htmlType="button" onClick={this.handleCancel}>
             Reset
           </Button>
           
         </Form.Item>
+
+        {this.state.isEditing ? (
+            <div>
+              <Form.Item >
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Salvar Alterações
+                </Button>
+              </Form.Item>
+              
+                <Button onClick={this.handleCancel}>Cancelar</Button>
+                
+            </div>
+            ) : (
+              <Button type="primary" onClick={this.handleEdit}>
+                Editar dados
+              </Button>
+            )}
+
       </Form>
     );
   }
 }
-
-export default Demo;
