@@ -6,7 +6,7 @@ import SpaceTable from '../../components/SpaceTable/SpaceTable';
 
 import 'antd/dist/antd.css';
 
-
+ 
 const { TreeNode } = Tree;
 
 const Structure = () => {
